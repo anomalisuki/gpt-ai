@@ -1,0 +1,9 @@
+{
+  "name": "ai-chat-vercel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI Chat UI + Vercel Serverless Function",
+  "engines": {
+    "node": "22.x"
+  }
+}

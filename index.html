@@ -2,10 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>AI Chat</title>
 
@@ -21,9 +18,7 @@
             --glass-border: rgba(255, 255, 255, 0.10);
             --text: #f5f7fb;
             --muted: rgba(255, 255, 255, 0.55);
-            --muted-2: rgba(255, 255, 255, 0.35);
             --accent: #8b7cff;
-            --accent-2: #6e5cff;
             --danger: #ff7272;
         }
 
@@ -36,6 +31,7 @@
 
         body {
             overflow: hidden;
+
             background:
                 radial-gradient(
                     circle at 15% 10%,
@@ -50,6 +46,7 @@
                 #07090f;
 
             color: var(--text);
+
             font-family:
                 Inter,
                 -apple-system,
@@ -70,25 +67,28 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* =========================
+        /* =====================================================
            APP
-        ========================= */
+        ===================================================== */
 
         .app {
             width: 100%;
             height: 100%;
+
             display: flex;
+
             position: relative;
             overflow: hidden;
         }
 
-        /* =========================
+        /* =====================================================
            SIDEBAR
-        ========================= */
+        ===================================================== */
 
         .sidebar {
             width: 300px;
             height: 100%;
+
             flex-shrink: 0;
 
             display: flex;
@@ -97,10 +97,17 @@
             padding: 16px;
 
             background: rgba(11, 14, 23, 0.70);
-            border-right: 1px solid var(--glass-border);
 
-            backdrop-filter: blur(25px) saturate(150%);
-            -webkit-backdrop-filter: blur(25px) saturate(150%);
+            border-right:
+                1px solid var(--glass-border);
+
+            backdrop-filter:
+                blur(25px)
+                saturate(150%);
+
+            -webkit-backdrop-filter:
+                blur(25px)
+                saturate(150%);
 
             z-index: 50;
 
@@ -113,12 +120,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             margin-bottom: 14px;
         }
 
         .brand {
             display: flex;
             align-items: center;
+
             gap: 10px;
         }
 
@@ -139,7 +148,8 @@
                     rgba(255, 255, 255, 0.06)
                 );
 
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border:
+                1px solid rgba(255, 255, 255, 0.12);
 
             box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -149,32 +159,38 @@
         .brand-icon svg {
             width: 20px;
             height: 20px;
+
             color: #bdb5ff;
         }
 
         .brand-title {
             font-size: 15px;
             font-weight: 700;
+
             letter-spacing: -0.2px;
         }
 
         .brand-subtitle {
             font-size: 11px;
+
             color: var(--muted);
+
             margin-top: 2px;
         }
 
-        /* =========================
+        /* =====================================================
            SEARCH
-        ========================= */
+        ===================================================== */
 
         .search-box {
             position: relative;
+
             margin-bottom: 15px;
         }
 
         .search-box svg {
             position: absolute;
+
             left: 13px;
             top: 50%;
 
@@ -182,7 +198,9 @@
             height: 17px;
 
             transform: translateY(-50%);
+
             color: var(--muted);
+
             pointer-events: none;
         }
 
@@ -190,15 +208,20 @@
             width: 100%;
             height: 42px;
 
-            padding: 0 13px 0 40px;
+            padding:
+                0 13px 0 40px;
 
             color: var(--text);
+
             outline: none;
 
             border-radius: 13px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
 
-            background: rgba(255, 255, 255, 0.045);
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            background:
+                rgba(255, 255, 255, 0.045);
 
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -209,17 +232,21 @@
         }
 
         .search-box input::placeholder {
-            color: rgba(255, 255, 255, 0.35);
+            color:
+                rgba(255, 255, 255, 0.35);
         }
 
         .search-box input:focus {
-            border-color: rgba(139, 124, 255, 0.4);
-            background: rgba(255, 255, 255, 0.065);
+            border-color:
+                rgba(139, 124, 255, 0.4);
+
+            background:
+                rgba(255, 255, 255, 0.065);
         }
 
-        /* =========================
+        /* =====================================================
            NEW CHAT
-        ========================= */
+        ===================================================== */
 
         .new-chat {
             width: 100%;
@@ -228,11 +255,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
             gap: 8px;
 
             margin-bottom: 17px;
 
-            border: 1px solid rgba(139, 124, 255, 0.22);
+            border:
+                1px solid rgba(139, 124, 255, 0.22);
+
             border-radius: 13px;
 
             color: white;
@@ -272,34 +302,40 @@
                     rgba(255, 255, 255, 0.065)
                 );
 
-            border-color: rgba(139, 124, 255, 0.35);
+            border-color:
+                rgba(139, 124, 255, 0.35);
         }
 
         .new-chat:active {
             transform: scale(0.98);
         }
 
-        /* =========================
+        /* =====================================================
            SIDEBAR TITLE
-        ========================= */
+        ===================================================== */
 
         .sidebar-section-title {
             color: var(--muted);
+
             font-size: 11px;
             font-weight: 600;
+
             text-transform: uppercase;
             letter-spacing: 0.7px;
 
-            margin: 0 4px 9px;
+            margin:
+                0 4px 9px;
         }
 
-        /* =========================
+        /* =====================================================
            CONVERSATION LIST
-        ========================= */
+        ===================================================== */
 
         .conversation-list {
             flex: 1;
+
             overflow-y: auto;
+
             padding-right: 3px;
         }
 
@@ -310,20 +346,26 @@
 
         .conversation-list::-webkit-scrollbar-thumb,
         .chat-messages::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.10);
+            background:
+                rgba(255, 255, 255, 0.10);
+
             border-radius: 10px;
         }
 
         .conversation-item-wrap {
             width: 100%;
+
             display: flex;
             align-items: center;
+
             gap: 5px;
+
             margin-bottom: 5px;
         }
 
         .conversation-item {
             min-width: 0;
+
             flex: 1;
 
             height: 45px;
@@ -331,13 +373,19 @@
             display: flex;
             align-items: center;
 
-            padding: 0 12px;
+            padding:
+                0 12px;
 
-            color: rgba(255, 255, 255, 0.68);
+            color:
+                rgba(255, 255, 255, 0.68);
+
             text-align: left;
 
             background: transparent;
-            border: 1px solid transparent;
+
+            border:
+                1px solid transparent;
+
             border-radius: 12px;
 
             cursor: pointer;
@@ -349,8 +397,12 @@
         }
 
         .conversation-item:hover {
-            background: rgba(255, 255, 255, 0.045);
-            border-color: rgba(255, 255, 255, 0.06);
+            background:
+                rgba(255, 255, 255, 0.045);
+
+            border-color:
+                rgba(255, 255, 255, 0.06);
+
             color: white;
         }
 
@@ -364,24 +416,28 @@
                     rgba(255, 255, 255, 0.035)
                 );
 
-            border-color: rgba(139, 124, 255, 0.16);
+            border-color:
+                rgba(139, 124, 255, 0.16);
         }
 
         .conversation-title {
             overflow: hidden;
+
             white-space: nowrap;
+
             text-overflow: ellipsis;
 
             font-size: 13px;
         }
 
-        /* =========================
+        /* =====================================================
            DELETE BUTTON
-        ========================= */
+        ===================================================== */
 
         .delete-conversation {
             width: 36px;
             height: 36px;
+
             flex-shrink: 0;
 
             display: flex;
@@ -392,11 +448,14 @@
 
             border-radius: 11px;
 
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border:
+                1px solid rgba(255, 255, 255, 0.07);
 
-            color: rgba(255, 255, 255, 0.45);
+            color:
+                rgba(255, 255, 255, 0.45);
 
-            background: rgba(255, 255, 255, 0.035);
+            background:
+                rgba(255, 255, 255, 0.035);
 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -418,9 +477,11 @@
         .delete-conversation:hover {
             color: #ff7c7c;
 
-            background: rgba(255, 75, 75, 0.12);
+            background:
+                rgba(255, 75, 75, 0.12);
 
-            border-color: rgba(255, 100, 100, 0.24);
+            border-color:
+                rgba(255, 100, 100, 0.24);
 
             transform: scale(1.05);
         }
@@ -429,9 +490,9 @@
             transform: scale(0.92);
         }
 
-        /* =========================
+        /* =====================================================
            SEARCH RESULTS
-        ========================= */
+        ===================================================== */
 
         .search-result {
             width: 100%;
@@ -444,9 +505,11 @@
 
             border-radius: 13px;
 
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border:
+                1px solid rgba(255, 255, 255, 0.07);
 
-            background: rgba(255, 255, 255, 0.035);
+            background:
+                rgba(255, 255, 255, 0.035);
 
             color: white;
 
@@ -462,14 +525,19 @@
         }
 
         .search-result:hover {
-            background: rgba(255, 255, 255, 0.065);
-            border-color: rgba(139, 124, 255, 0.22);
+            background:
+                rgba(255, 255, 255, 0.065);
+
+            border-color:
+                rgba(139, 124, 255, 0.22);
+
             transform: translateY(-1px);
         }
 
         .search-result-top {
             display: flex;
             justify-content: space-between;
+
             gap: 8px;
 
             margin-bottom: 7px;
@@ -479,12 +547,16 @@
             min-width: 0;
 
             overflow: hidden;
+
             text-overflow: ellipsis;
+
             white-space: nowrap;
 
             font-size: 11px;
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.62);
+
+            color:
+                rgba(255, 255, 255, 0.62);
         }
 
         .search-result-role {
@@ -492,44 +564,60 @@
 
             font-size: 10px;
 
-            padding: 3px 7px;
+            padding:
+                3px 7px;
 
             border-radius: 7px;
 
-            background: rgba(139, 124, 255, 0.12);
+            background:
+                rgba(139, 124, 255, 0.12);
+
             color: #bcb5ff;
         }
 
         .search-snippet {
-            color: rgba(255, 255, 255, 0.72);
+            color:
+                rgba(255, 255, 255, 0.72);
+
             font-size: 12px;
+
             line-height: 1.5;
         }
 
         .search-snippet mark {
             color: white;
-            background: rgba(139, 124, 255, 0.32);
+
+            background:
+                rgba(139, 124, 255, 0.32);
+
             border-radius: 4px;
-            padding: 1px 3px;
+
+            padding:
+                1px 3px;
         }
 
         .no-results {
-            padding: 25px 10px;
+            padding:
+                25px 10px;
 
             text-align: center;
 
             color: var(--muted);
+
             font-size: 12px;
+
             line-height: 1.6;
         }
 
-        /* =========================
+        /* =====================================================
            MAIN
-        ========================= */
+        ===================================================== */
 
         .main {
             min-width: 0;
+
             flex: 1;
+
             height: 100%;
 
             display: flex;
@@ -538,22 +626,26 @@
             position: relative;
         }
 
-        /* =========================
+        /* =====================================================
            TOPBAR
-        ========================= */
+        ===================================================== */
 
         .topbar {
             height: 64px;
+
             flex-shrink: 0;
 
             display: flex;
             align-items: center;
 
-            padding: 0 20px;
+            padding:
+                0 20px;
 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.07);
 
-            background: rgba(7, 9, 15, 0.38);
+            background:
+                rgba(7, 9, 15, 0.38);
 
             backdrop-filter: blur(22px);
             -webkit-backdrop-filter: blur(22px);
@@ -566,6 +658,7 @@
             height: 39px;
 
             display: none;
+
             align-items: center;
             justify-content: center;
 
@@ -573,9 +666,11 @@
 
             border-radius: 11px;
 
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
 
-            background: rgba(255, 255, 255, 0.045);
+            background:
+                rgba(255, 255, 255, 0.045);
 
             color: white;
 
@@ -589,19 +684,24 @@
 
         .topbar-title {
             font-size: 14px;
+
             font-weight: 600;
         }
 
-        /* =========================
+        /* =====================================================
            CHAT
-        ========================= */
+        ===================================================== */
 
         .chat-messages {
             flex: 1;
 
             overflow-y: auto;
 
-            padding: 35px max(20px, calc((100vw - 950px) / 2));
+            padding:
+                35px max(
+                    20px,
+                    calc((100vw - 950px) / 2)
+                );
 
             scroll-behavior: smooth;
         }
@@ -618,6 +718,7 @@
 
         .welcome-inner {
             max-width: 570px;
+
             padding: 30px;
         }
 
@@ -625,7 +726,8 @@
             width: 64px;
             height: 64px;
 
-            margin: 0 auto 18px;
+            margin:
+                0 auto 18px;
 
             display: flex;
             align-items: center;
@@ -640,7 +742,8 @@
                     rgba(255, 255, 255, 0.045)
                 );
 
-            border: 1px solid rgba(255, 255, 255, 0.10);
+            border:
+                1px solid rgba(255, 255, 255, 0.10);
 
             box-shadow:
                 0 20px 60px rgba(0, 0, 0, 0.20),
@@ -650,13 +753,16 @@
         .welcome-icon svg {
             width: 29px;
             height: 29px;
+
             color: #bdb6ff;
         }
 
         .welcome h1 {
-            margin: 0 0 9px;
+            margin:
+                0 0 9px;
 
-            font-size: clamp(25px, 4vw, 36px);
+            font-size:
+                clamp(25px, 4vw, 36px);
 
             letter-spacing: -1px;
         }
@@ -665,16 +771,19 @@
             margin: 0;
 
             color: var(--muted);
+
             font-size: 14px;
+
             line-height: 1.7;
         }
 
-        /* =========================
+        /* =====================================================
            MESSAGE
-        ========================= */
+        ===================================================== */
 
         .message-row {
             display: flex;
+
             width: 100%;
 
             margin-bottom: 24px;
@@ -693,20 +802,26 @@
         }
 
         .message-content {
-            max-width: min(760px, 85%);
+            max-width:
+                min(760px, 85%);
 
-            padding: 13px 16px;
+            padding:
+                13px 16px;
 
             border-radius: 17px;
 
             font-size: 14px;
+
             line-height: 1.7;
 
             word-wrap: break-word;
+
             overflow-wrap: anywhere;
         }
 
-        .message-row.user .message-content {
+        .message-row.user
+        .message-content {
+
             background:
                 linear-gradient(
                     135deg,
@@ -714,7 +829,8 @@
                     rgba(139, 124, 255, 0.09)
                 );
 
-            border: 1px solid rgba(139, 124, 255, 0.18);
+            border:
+                1px solid rgba(139, 124, 255, 0.18);
 
             border-bottom-right-radius: 5px;
 
@@ -723,10 +839,14 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.07);
         }
 
-        .message-row.assistant .message-content {
-            background: rgba(255, 255, 255, 0.038);
+        .message-row.assistant
+        .message-content {
 
-            border: 1px solid rgba(255, 255, 255, 0.065);
+            background:
+                rgba(255, 255, 255, 0.038);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.065);
 
             border-bottom-left-radius: 5px;
 
@@ -739,27 +859,31 @@
         }
 
         .message-content p {
-            margin: 0 0 10px;
+            margin:
+                0 0 10px;
         }
 
         .message-content p:last-child {
             margin-bottom: 0;
         }
 
-        /* =========================
+        /* =====================================================
            CODE BLOCK
-        ========================= */
+        ===================================================== */
 
         .code-wrapper {
-            margin: 12px 0;
+            margin:
+                12px 0;
 
             overflow: hidden;
 
             border-radius: 12px;
 
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
 
-            background: rgba(0, 0, 0, 0.30);
+            background:
+                rgba(0, 0, 0, 0.30);
         }
 
         .code-header {
@@ -769,9 +893,11 @@
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 10px;
+            padding:
+                0 10px;
 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.07);
 
             color: var(--muted);
 
@@ -781,29 +907,36 @@
         .copy-code {
             border: 0;
 
-            padding: 5px 8px;
+            padding:
+                5px 8px;
 
             border-radius: 7px;
 
-            color: rgba(255, 255, 255, 0.65);
+            color:
+                rgba(255, 255, 255, 0.65);
 
-            background: rgba(255, 255, 255, 0.055);
+            background:
+                rgba(255, 255, 255, 0.055);
 
             cursor: pointer;
         }
 
         .copy-code:hover {
-            background: rgba(255, 255, 255, 0.10);
+            background:
+                rgba(255, 255, 255, 0.10);
+
             color: white;
         }
 
         pre {
             margin: 0;
+
             padding: 13px;
 
             overflow-x: auto;
 
             font-size: 12px;
+
             line-height: 1.6;
         }
 
@@ -816,25 +949,30 @@
         }
 
         .inline-code {
-            padding: 2px 5px;
+            padding:
+                2px 5px;
 
             border-radius: 5px;
 
-            background: rgba(255, 255, 255, 0.08);
+            background:
+                rgba(255, 255, 255, 0.08);
 
             font-family: monospace;
+
             font-size: 0.9em;
         }
 
-        /* =========================
+        /* =====================================================
            SEARCH HIGHLIGHT
-        ========================= */
+        ===================================================== */
 
         .message-row.search-highlight {
-            animation: messageHighlight 1.8s ease;
+            animation:
+                messageHighlight 1.8s ease;
         }
 
         @keyframes messageHighlight {
+
             0% {
                 transform: scale(1.015);
                 filter: brightness(1.45);
@@ -844,17 +982,20 @@
                 transform: scale(1);
                 filter: brightness(1);
             }
+
         }
 
-        /* =========================
+        /* =====================================================
            TYPING
-        ========================= */
+        ===================================================== */
 
         .typing {
             display: flex;
+
             gap: 5px;
 
-            padding: 7px 4px;
+            padding:
+                7px 4px;
         }
 
         .typing span {
@@ -863,9 +1004,11 @@
 
             border-radius: 50%;
 
-            background: rgba(255, 255, 255, 0.45);
+            background:
+                rgba(255, 255, 255, 0.45);
 
-            animation: typing 1.2s infinite ease-in-out;
+            animation:
+                typing 1.2s infinite ease-in-out;
         }
 
         .typing span:nth-child(2) {
@@ -877,6 +1020,7 @@
         }
 
         @keyframes typing {
+
             0%,
             60%,
             100% {
@@ -888,18 +1032,21 @@
                 transform: translateY(-4px);
                 opacity: 1;
             }
+
         }
 
-        /* =========================
+        /* =====================================================
            COMPOSER
-        ========================= */
+        ===================================================== */
 
         .composer-area {
             flex-shrink: 0;
 
             padding:
-                12px max(20px, calc((100vw - 950px) / 2))
-                18px;
+                12px max(
+                    20px,
+                    calc((100vw - 950px) / 2)
+                ) 18px;
 
             background:
                 linear-gradient(
@@ -912,35 +1059,46 @@
         .composer {
             display: flex;
             align-items: flex-end;
+
             gap: 9px;
 
             padding: 9px;
 
             border-radius: 17px;
 
-            border: 1px solid rgba(255, 255, 255, 0.10);
+            border:
+                1px solid rgba(255, 255, 255, 0.10);
 
-            background: rgba(255, 255, 255, 0.055);
+            background:
+                rgba(255, 255, 255, 0.055);
 
             box-shadow:
                 0 15px 50px rgba(0, 0, 0, 0.22),
                 inset 0 1px 0 rgba(255, 255, 255, 0.055);
 
-            backdrop-filter: blur(22px) saturate(140%);
-            -webkit-backdrop-filter: blur(22px) saturate(140%);
+            backdrop-filter:
+                blur(22px)
+                saturate(140%);
+
+            -webkit-backdrop-filter:
+                blur(22px)
+                saturate(140%);
         }
 
         .composer textarea {
             flex: 1;
 
             min-height: 40px;
+
             max-height: 160px;
 
-            padding: 10px 8px;
+            padding:
+                10px 8px;
 
             resize: none;
 
             border: 0;
+
             outline: none;
 
             color: white;
@@ -948,11 +1106,13 @@
             background: transparent;
 
             font-size: 14px;
+
             line-height: 1.5;
         }
 
         .composer textarea::placeholder {
-            color: rgba(255, 255, 255, 0.35);
+            color:
+                rgba(255, 255, 255, 0.35);
         }
 
         .send-button {
@@ -967,7 +1127,8 @@
 
             border-radius: 12px;
 
-            border: 1px solid rgba(139, 124, 255, 0.25);
+            border:
+                1px solid rgba(139, 124, 255, 0.25);
 
             background:
                 linear-gradient(
@@ -998,7 +1159,8 @@
                     rgba(111, 92, 255, 0.20)
                 );
 
-            transform: translateY(-1px);
+            transform:
+                translateY(-1px);
         }
 
         .send-button:active {
@@ -1007,25 +1169,30 @@
 
         .send-button:disabled {
             opacity: 0.4;
+
             cursor: not-allowed;
+
             transform: none;
         }
 
-        /* =========================
-           MODAL
-        ========================= */
+        /* =====================================================
+           DELETE MODAL
+        ===================================================== */
 
         .modal {
             position: fixed;
+
             inset: 0;
 
             display: none;
+
             align-items: center;
             justify-content: center;
 
             padding: 20px;
 
-            background: rgba(0, 0, 0, 0.58);
+            background:
+                rgba(0, 0, 0, 0.58);
 
             backdrop-filter: blur(9px);
             -webkit-backdrop-filter: blur(9px);
@@ -1038,13 +1205,15 @@
         }
 
         .modal-box {
-            width: min(390px, 100%);
+            width:
+                min(390px, 100%);
 
             padding: 24px;
 
             border-radius: 20px;
 
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border:
+                1px solid rgba(255, 255, 255, 0.12);
 
             background:
                 linear-gradient(
@@ -1057,22 +1226,36 @@
                 0 30px 100px rgba(0, 0, 0, 0.50),
                 inset 0 1px 0 rgba(255, 255, 255, 0.07);
 
-            backdrop-filter: blur(30px) saturate(150%);
-            -webkit-backdrop-filter: blur(30px) saturate(150%);
+            backdrop-filter:
+                blur(30px)
+                saturate(150%);
 
-            animation: modalIn 0.2s ease;
+            -webkit-backdrop-filter:
+                blur(30px)
+                saturate(150%);
+
+            animation:
+                modalIn 0.2s ease;
         }
 
         @keyframes modalIn {
+
             from {
                 opacity: 0;
-                transform: translateY(10px) scale(0.97);
+
+                transform:
+                    translateY(10px)
+                    scale(0.97);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+
+                transform:
+                    translateY(0)
+                    scale(1);
             }
+
         }
 
         .modal-icon {
@@ -1089,9 +1272,11 @@
 
             color: #ff8585;
 
-            background: rgba(255, 90, 90, 0.10);
+            background:
+                rgba(255, 90, 90, 0.10);
 
-            border: 1px solid rgba(255, 100, 100, 0.15);
+            border:
+                1px solid rgba(255, 100, 100, 0.15);
         }
 
         .modal-icon svg {
@@ -1100,9 +1285,11 @@
         }
 
         .modal-title {
-            margin: 0 0 7px;
+            margin:
+                0 0 7px;
 
             font-size: 18px;
+
             font-weight: 700;
         }
 
@@ -1112,12 +1299,15 @@
             color: var(--muted);
 
             font-size: 13px;
+
             line-height: 1.6;
         }
 
         .modal-actions {
             display: flex;
+
             justify-content: flex-end;
+
             gap: 9px;
 
             margin-top: 22px;
@@ -1126,17 +1316,21 @@
         .modal-button {
             height: 39px;
 
-            padding: 0 15px;
+            padding:
+                0 15px;
 
             border-radius: 11px;
 
             cursor: pointer;
 
-            border: 1px solid rgba(255, 255, 255, 0.09);
+            border:
+                1px solid rgba(255, 255, 255, 0.09);
 
-            background: rgba(255, 255, 255, 0.045);
+            background:
+                rgba(255, 255, 255, 0.045);
 
-            color: rgba(255, 255, 255, 0.75);
+            color:
+                rgba(255, 255, 255, 0.75);
 
             transition:
                 background 0.2s ease,
@@ -1144,61 +1338,78 @@
         }
 
         .modal-button:hover {
-            background: rgba(255, 255, 255, 0.08);
+            background:
+                rgba(255, 255, 255, 0.08);
+
             color: white;
         }
 
         .modal-button.danger {
             color: #ff9a9a;
 
-            background: rgba(255, 75, 75, 0.10);
+            background:
+                rgba(255, 75, 75, 0.10);
 
-            border-color: rgba(255, 100, 100, 0.17);
+            border-color:
+                rgba(255, 100, 100, 0.17);
         }
 
         .modal-button.danger:hover {
-            background: rgba(255, 75, 75, 0.17);
-            border-color: rgba(255, 100, 100, 0.28);
+            background:
+                rgba(255, 75, 75, 0.17);
+
+            border-color:
+                rgba(255, 100, 100, 0.28);
         }
 
-        /* =========================
+        /* =====================================================
            SIDEBAR BACKDROP
-        ========================= */
+        ===================================================== */
 
         .sidebar-backdrop {
             display: none;
         }
 
-        /* =========================
+        /* =====================================================
            RESPONSIVE
-        ========================= */
+        ===================================================== */
 
         @media (max-width: 800px) {
+
             .sidebar {
                 position: fixed;
+
                 left: 0;
                 top: 0;
 
-                width: min(310px, 88vw);
+                width:
+                    min(310px, 88vw);
 
-                transform: translateX(-105%);
+                transform:
+                    translateX(-105%);
 
-                box-shadow: 25px 0 80px rgba(0, 0, 0, 0.30);
+                box-shadow:
+                    25px 0 80px
+                    rgba(0, 0, 0, 0.30);
             }
 
             .sidebar.open {
-                transform: translateX(0);
+                transform:
+                    translateX(0);
             }
 
             .sidebar-backdrop {
                 position: fixed;
+
                 inset: 0;
 
                 display: block;
 
-                background: rgba(0, 0, 0, 0.45);
+                background:
+                    rgba(0, 0, 0, 0.45);
 
                 opacity: 0;
+
                 visibility: hidden;
 
                 transition:
@@ -1213,6 +1424,7 @@
 
             .sidebar-backdrop.show {
                 opacity: 1;
+
                 visibility: visible;
             }
 
@@ -1221,28 +1433,33 @@
             }
 
             .topbar {
-                padding: 0 13px;
+                padding:
+                    0 13px;
             }
 
             .chat-messages {
                 padding:
-                    25px 13px
-                    20px;
+                    25px 13px 20px;
             }
 
             .composer-area {
                 padding:
                     8px 10px
-                    calc(10px + env(safe-area-inset-bottom));
+                    calc(
+                        10px +
+                        env(safe-area-inset-bottom)
+                    );
             }
 
             .message-content {
                 max-width: 91%;
+
                 font-size: 13.5px;
             }
         }
 
         @media (max-width: 430px) {
+
             .welcome-inner {
                 padding: 20px;
             }
@@ -1266,7 +1483,10 @@
 
 <div class="app">
 
-    <!-- SIDEBAR -->
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
     <aside class="sidebar" id="sidebar">
 
         <div class="sidebar-header">
@@ -1274,21 +1494,33 @@
             <div class="brand">
 
                 <div class="brand-icon">
-                    <svg viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor"
-                         stroke-width="1.7"
-                         stroke-linecap="round"
-                         stroke-linejoin="round">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
                         <path d="M12 3a8 8 0 0 0-8 8c0 2.1.8 4 2.2 5.4L5 20l3.8-1.2A8 8 0 1 0 12 3Z"/>
                         <path d="M8.5 11h.01"/>
                         <path d="M12 11h.01"/>
                         <path d="M15.5 11h.01"/>
                     </svg>
+
                 </div>
 
                 <div>
-                    <div class="brand-title">AI Chat</div>
-                    <div class="brand-subtitle">Percakapan AI</div>
+
+                    <div class="brand-title">
+                        AI Chat
+                    </div>
+
+                    <div class="brand-subtitle">
+                        Percakapan AI
+                    </div>
+
                 </div>
 
             </div>
@@ -1297,15 +1529,26 @@
 
 
         <!-- SEARCH -->
+
         <div class="search-box">
 
-            <svg viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor"
-                 stroke-width="2"
-                 stroke-linecap="round"
-                 stroke-linejoin="round">
-                <circle cx="11" cy="11" r="7"></circle>
-                <path d="m20 20-4-4"></path>
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <circle
+                    cx="11"
+                    cy="11"
+                    r="7"
+                ></circle>
+
+                <path
+                    d="m20 20-4-4"
+                ></path>
             </svg>
 
             <input
@@ -1320,39 +1563,61 @@
 
 
         <!-- NEW CHAT -->
-        <button class="new-chat" id="newChatButton">
 
-            <svg viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.8"
-                 stroke-linecap="round"
-                 stroke-linejoin="round">
+        <button
+            class="new-chat"
+            id="newChatButton"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
                 <path d="M12 5v14"></path>
                 <path d="M5 12h14"></path>
             </svg>
 
-            <span>Percakapan baru</span>
+            <span>
+                Percakapan baru
+            </span>
 
         </button>
 
 
-        <div class="sidebar-section-title" id="sidebarSectionTitle">
+        <div
+            class="sidebar-section-title"
+            id="sidebarSectionTitle"
+        >
             Percakapan
         </div>
 
 
-        <div class="conversation-list" id="conversationList"></div>
+        <div
+            class="conversation-list"
+            id="conversationList"
+        ></div>
 
     </aside>
 
 
-    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <div
+        class="sidebar-backdrop"
+        id="sidebarBackdrop"
+    ></div>
 
 
-    <!-- MAIN -->
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
     <main class="main">
 
         <!-- TOPBAR -->
+
         <header class="topbar">
 
             <button
@@ -1360,17 +1625,25 @@
                 id="menuButton"
                 aria-label="Buka menu"
             >
-                <svg viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor"
-                     stroke-width="2"
-                     stroke-linecap="round">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                >
                     <path d="M4 6h16"></path>
                     <path d="M4 12h16"></path>
                     <path d="M4 18h16"></path>
                 </svg>
+
             </button>
 
-            <div class="topbar-title" id="topbarTitle">
+            <div
+                class="topbar-title"
+                id="topbarTitle"
+            >
                 Percakapan baru
             </div>
 
@@ -1378,10 +1651,15 @@
 
 
         <!-- CHAT -->
-        <section class="chat-messages" id="chatMessages"></section>
+
+        <section
+            class="chat-messages"
+            id="chatMessages"
+        ></section>
 
 
         <!-- COMPOSER -->
+
         <div class="composer-area">
 
             <div class="composer">
@@ -1400,11 +1678,14 @@
                     aria-label="Kirim pesan"
                 >
 
-                    <svg viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor"
-                         stroke-width="1.8"
-                         stroke-linecap="round"
-                         stroke-linejoin="round">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
                         <path d="M22 2 11 13"></path>
                         <path d="m22 2-7 20-4-9-9-4Z"></path>
                     </svg>
@@ -1420,25 +1701,32 @@
 </div>
 
 
-<!-- DELETE MODAL -->
-<div class="modal" id="deleteModal">
+<!-- =====================================================
+     DELETE MODAL
+====================================================== -->
+
+<div
+    class="modal"
+    id="deleteModal"
+>
 
     <div class="modal-box">
 
         <div class="modal-icon">
 
-            <svg viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.8"
-                 stroke-linecap="round"
-                 stroke-linejoin="round">
-
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
                 <path d="M3 6h18"></path>
                 <path d="M8 6V4h8v2"></path>
                 <path d="M19 6l-1 14H6L5 6"></path>
                 <path d="M10 11v5"></path>
                 <path d="M14 11v5"></path>
-
             </svg>
 
         </div>
@@ -1448,8 +1736,8 @@
         </h2>
 
         <p class="modal-text">
-            Percakapan ini akan dihapus dari perangkat kamu.
-            Tindakan ini tidak dapat dibatalkan.
+            Percakapan ini akan dihapus dari perangkat
+            kamu. Tindakan ini tidak dapat dibatalkan.
         </p>
 
         <div class="modal-actions">
@@ -1476,104 +1764,150 @@
 
 
 <script>
-    /* =========================================================
+
+    /* =====================================================
        STORAGE
-    ========================================================= */
+    ===================================================== */
 
-    const STORAGE_KEY = "ai_chat_conversations_v3";
-    const CURRENT_KEY = "ai_current_conversation";
+    const STORAGE_KEY =
+        "ai_chat_conversations_v3";
+
+    const CURRENT_KEY =
+        "ai_current_conversation";
 
 
-    /* =========================================================
+    /* =====================================================
        ELEMENTS
-    ========================================================= */
+    ===================================================== */
 
-    const sidebar = document.getElementById("sidebar");
-    const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+    const sidebar =
+        document.getElementById("sidebar");
 
-    const searchInput = document.getElementById("searchInput");
-    const conversationList = document.getElementById("conversationList");
+    const sidebarBackdrop =
+        document.getElementById(
+            "sidebarBackdrop"
+        );
+
+    const searchInput =
+        document.getElementById(
+            "searchInput"
+        );
+
+    const conversationList =
+        document.getElementById(
+            "conversationList"
+        );
+
     const sidebarSectionTitle =
-        document.getElementById("sidebarSectionTitle");
+        document.getElementById(
+            "sidebarSectionTitle"
+        );
 
     const newChatButton =
-        document.getElementById("newChatButton");
+        document.getElementById(
+            "newChatButton"
+        );
 
     const chatMessages =
-        document.getElementById("chatMessages");
+        document.getElementById(
+            "chatMessages"
+        );
 
     const messageInput =
-        document.getElementById("messageInput");
+        document.getElementById(
+            "messageInput"
+        );
 
     const sendButton =
-        document.getElementById("sendButton");
+        document.getElementById(
+            "sendButton"
+        );
 
     const topbarTitle =
-        document.getElementById("topbarTitle");
+        document.getElementById(
+            "topbarTitle"
+        );
 
     const menuButton =
-        document.getElementById("menuButton");
+        document.getElementById(
+            "menuButton"
+        );
 
     const deleteModal =
-        document.getElementById("deleteModal");
+        document.getElementById(
+            "deleteModal"
+        );
 
     const cancelDelete =
-        document.getElementById("cancelDelete");
+        document.getElementById(
+            "cancelDelete"
+        );
 
     const confirmDelete =
-        document.getElementById("confirmDelete");
+        document.getElementById(
+            "confirmDelete"
+        );
 
 
-    /* =========================================================
+    /* =====================================================
        STATE
-    ========================================================= */
+    ===================================================== */
 
-    let conversations = loadConversations();
+    let conversations =
+        loadConversations();
 
     let currentConversationId =
-        localStorage.getItem(CURRENT_KEY);
+        localStorage.getItem(
+            CURRENT_KEY
+        );
 
     let pendingDeleteId = null;
 
     let isSending = false;
 
 
-    /* =========================================================
-       ID
-    ========================================================= */
+    /* =====================================================
+       CREATE ID
+    ===================================================== */
 
     function createId() {
 
         if (
             window.crypto &&
-            typeof window.crypto.randomUUID === "function"
+            typeof window.crypto.randomUUID ===
+                "function"
         ) {
             return window.crypto.randomUUID();
         }
 
         return (
             Date.now().toString(36) +
-            Math.random().toString(36).slice(2)
+            Math.random()
+                .toString(36)
+                .slice(2)
         );
     }
 
 
-    /* =========================================================
-       LOAD / SAVE
-    ========================================================= */
+    /* =====================================================
+       LOAD CONVERSATIONS
+    ===================================================== */
 
     function loadConversations() {
 
         try {
 
             const raw =
-                localStorage.getItem(STORAGE_KEY);
+                localStorage.getItem(
+                    STORAGE_KEY
+                );
 
             if (!raw) {
                 return [];
             }
 
-            const parsed = JSON.parse(raw);
+            const parsed =
+                JSON.parse(raw);
 
             if (!Array.isArray(parsed)) {
                 return [];
@@ -1581,39 +1915,51 @@
 
             let changed = false;
 
-            const result = parsed.map(conversation => {
+            const result =
+                parsed.map(
+                    conversation => {
 
-                const messages =
-                    Array.isArray(conversation.messages)
-                        ? conversation.messages.map(message => {
+                        const messages =
+                            Array.isArray(
+                                conversation.messages
+                            )
+                                ? conversation.messages.map(
+                                    message => {
 
-                            if (!message.id) {
-                                changed = true;
+                                        if (
+                                            !message.id
+                                        ) {
 
-                                return {
-                                    ...message,
-                                    id: createId()
-                                };
-                            }
+                                            changed =
+                                                true;
 
-                            return message;
+                                            return {
+                                                ...message,
+                                                id: createId()
+                                            };
+                                        }
 
-                        })
-                        : [];
+                                        return message;
+                                    }
+                                )
+                                : [];
 
-                return {
-                    ...conversation,
-                    messages
-                };
+                        return {
+                            ...conversation,
+                            messages
+                        };
+                    }
+                );
 
-            });
 
             if (changed) {
+
                 localStorage.setItem(
                     STORAGE_KEY,
                     JSON.stringify(result)
                 );
             }
+
 
             return result;
 
@@ -1629,12 +1975,19 @@
     }
 
 
+    /* =====================================================
+       SAVE
+    ===================================================== */
+
     function saveConversations() {
 
         localStorage.setItem(
             STORAGE_KEY,
-            JSON.stringify(conversations)
+            JSON.stringify(
+                conversations
+            )
         );
+
 
         if (currentConversationId) {
 
@@ -1645,15 +1998,16 @@
 
         } else {
 
-            localStorage.removeItem(CURRENT_KEY);
-
+            localStorage.removeItem(
+                CURRENT_KEY
+            );
         }
     }
 
 
-    /* =========================================================
-       CREATE CONVERSATION
-    ========================================================= */
+    /* =====================================================
+       CREATE NEW CONVERSATION
+    ===================================================== */
 
     function createNewConversation() {
 
@@ -1661,24 +2015,32 @@
 
             id: createId(),
 
-            title: "Percakapan baru",
+            title:
+                "Percakapan baru",
 
             messages: [],
 
-            createdAt: Date.now()
-
+            createdAt:
+                Date.now()
         };
 
-        conversations.unshift(conversation);
+
+        conversations.unshift(
+            conversation
+        );
+
 
         currentConversationId =
             conversation.id;
 
+
         searchInput.value = "";
+
 
         saveConversations();
 
         renderSidebar();
+
         renderConversation();
 
         messageInput.focus();
@@ -1687,33 +2049,36 @@
     }
 
 
-    /* =========================================================
-       GET CURRENT
-    ========================================================= */
+    /* =====================================================
+       CURRENT CONVERSATION
+    ===================================================== */
 
     function getCurrentConversation() {
 
         return conversations.find(
             conversation =>
-                conversation.id === currentConversationId
+                conversation.id ===
+                currentConversationId
         ) || null;
     }
 
 
-    /* =========================================================
+    /* =====================================================
        OPEN CONVERSATION
-    ========================================================= */
+    ===================================================== */
 
     function openConversation(id) {
 
         const conversation =
             conversations.find(
-                item => item.id === id
+                item =>
+                    item.id === id
             );
 
         if (!conversation) {
             return;
         }
+
 
         currentConversationId = id;
 
@@ -1725,24 +2090,28 @@
     }
 
 
-    /* =========================================================
-       DELETE
-    ========================================================= */
+    /* =====================================================
+       DELETE MODAL
+    ===================================================== */
 
     function requestDeleteConversation(id) {
 
         const conversation =
             conversations.find(
-                item => item.id === id
+                item =>
+                    item.id === id
             );
 
         if (!conversation) {
             return;
         }
 
+
         pendingDeleteId = id;
 
-        deleteModal.classList.add("show");
+        deleteModal.classList.add(
+            "show"
+        );
     }
 
 
@@ -1750,25 +2119,38 @@
 
         pendingDeleteId = null;
 
-        deleteModal.classList.remove("show");
+        deleteModal.classList.remove(
+            "show"
+        );
     }
 
+
+    /* =====================================================
+       DELETE CONVERSATION
+    ===================================================== */
 
     function deleteConversation(id) {
 
         const index =
             conversations.findIndex(
-                item => item.id === id
+                item =>
+                    item.id === id
             );
 
         if (index === -1) {
             return;
         }
 
+
         const wasCurrent =
             currentConversationId === id;
 
-        conversations.splice(index, 1);
+
+        conversations.splice(
+            index,
+            1
+        );
+
 
         if (wasCurrent) {
 
@@ -1779,47 +2161,63 @@
 
             } else {
 
-                currentConversationId = null;
+                currentConversationId =
+                    null;
             }
         }
+
 
         saveConversations();
 
         renderSidebar();
+
         renderConversation();
     }
 
 
-    /* =========================================================
+    /* =====================================================
        SIDEBAR
-    ========================================================= */
+    ===================================================== */
 
     function openSidebar() {
 
-        sidebar.classList.add("open");
-        sidebarBackdrop.classList.add("show");
+        sidebar.classList.add(
+            "open"
+        );
+
+        sidebarBackdrop.classList.add(
+            "show"
+        );
     }
 
 
     function closeSidebar() {
 
-        sidebar.classList.remove("open");
-        sidebarBackdrop.classList.remove("show");
+        sidebar.classList.remove(
+            "open"
+        );
+
+        sidebarBackdrop.classList.remove(
+            "show"
+        );
     }
 
 
-    /* =========================================================
+    /* =====================================================
        RENDER SIDEBAR
-    ========================================================= */
+    ===================================================== */
 
     function renderSidebar() {
 
         const keyword =
             searchInput.value.trim();
 
+
         if (keyword) {
 
-            renderSearchResults(keyword);
+            renderSearchResults(
+                keyword
+            );
 
         } else {
 
@@ -1828,12 +2226,17 @@
     }
 
 
+    /* =====================================================
+       RENDER CONVERSATION LIST
+    ===================================================== */
+
     function renderConversationList() {
 
         sidebarSectionTitle.textContent =
             "Percakapan";
 
         conversationList.innerHTML = "";
+
 
         if (conversations.length === 0) {
 
@@ -1846,101 +2249,131 @@
             return;
         }
 
-        conversations.forEach(conversation => {
 
-            const wrapper =
-                document.createElement("div");
+        conversations.forEach(
+            conversation => {
 
-            wrapper.className =
-                "conversation-item-wrap";
+                const wrapper =
+                    document.createElement(
+                        "div"
+                    );
+
+                wrapper.className =
+                    "conversation-item-wrap";
 
 
-            const button =
-                document.createElement("button");
+                const button =
+                    document.createElement(
+                        "button"
+                    );
 
-            button.className =
-                "conversation-item";
+                button.className =
+                    "conversation-item";
 
-            if (
-                conversation.id ===
-                currentConversationId
-            ) {
-                button.classList.add("active");
+
+                if (
+                    conversation.id ===
+                    currentConversationId
+                ) {
+
+                    button.classList.add(
+                        "active"
+                    );
+                }
+
+
+                button.dataset.conversationId =
+                    conversation.id;
+
+
+                const title =
+                    document.createElement(
+                        "div"
+                    );
+
+                title.className =
+                    "conversation-title";
+
+                title.textContent =
+                    conversation.title ||
+                    "Percakapan baru";
+
+
+                button.appendChild(
+                    title
+                );
+
+
+                /* DELETE BUTTON */
+
+                const deleteButton =
+                    document.createElement(
+                        "button"
+                    );
+
+                deleteButton.className =
+                    "delete-conversation";
+
+                deleteButton.title =
+                    "Hapus percakapan";
+
+                deleteButton.setAttribute(
+                    "aria-label",
+                    "Hapus percakapan"
+                );
+
+                deleteButton.dataset.deleteId =
+                    conversation.id;
+
+
+                deleteButton.innerHTML = `
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M3 6h18"></path>
+                        <path d="M8 6V4h8v2"></path>
+                        <path d="M19 6l-1 14H6L5 6"></path>
+                        <path d="M10 11v5"></path>
+                        <path d="M14 11v5"></path>
+                    </svg>
+                `;
+
+
+                wrapper.appendChild(
+                    button
+                );
+
+                wrapper.appendChild(
+                    deleteButton
+                );
+
+
+                conversationList.appendChild(
+                    wrapper
+                );
             }
-
-            button.dataset.conversationId =
-                conversation.id;
-
-
-            const title =
-                document.createElement("div");
-
-            title.className =
-                "conversation-title";
-
-            title.textContent =
-                conversation.title ||
-                "Percakapan baru";
-
-
-            button.appendChild(title);
-
-
-            /* DELETE */
-
-            const deleteButton =
-                document.createElement("button");
-
-            deleteButton.className =
-                "delete-conversation";
-
-            deleteButton.title =
-                "Hapus percakapan";
-
-            deleteButton.setAttribute(
-                "aria-label",
-                "Hapus percakapan"
-            );
-
-            deleteButton.dataset.deleteId =
-                conversation.id;
-
-            deleteButton.innerHTML = `
-                <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4h8v2"></path>
-                    <path d="M19 6l-1 14H6L5 6"></path>
-                    <path d="M10 11v5"></path>
-                    <path d="M14 11v5"></path>
-                </svg>
-            `;
-
-
-            wrapper.appendChild(button);
-            wrapper.appendChild(deleteButton);
-
-            conversationList.appendChild(wrapper);
-        });
+        );
     }
 
 
-    /* =========================================================
-       SEARCH
-    ========================================================= */
+    /* =====================================================
+       SEARCH RESULTS
+    ===================================================== */
 
-    function renderSearchResults(keyword) {
+    function renderSearchResults(
+        keyword
+    ) {
 
         sidebarSectionTitle.textContent =
             "Hasil pencarian";
 
         conversationList.innerHTML = "";
+
 
         const results = [];
 
@@ -1948,28 +2381,36 @@
             keyword.toLowerCase();
 
 
-        conversations.forEach(conversation => {
+        conversations.forEach(
+            conversation => {
 
-            conversation.messages.forEach(message => {
+                conversation.messages.forEach(
+                    message => {
 
-                const content =
-                    String(message.content || "");
+                        const content =
+                            String(
+                                message.content ||
+                                ""
+                            );
 
-                if (
-                    content
-                        .toLowerCase()
-                        .includes(query)
-                ) {
 
-                    results.push({
-                        conversation,
-                        message
-                    });
-                }
+                        if (
+                            content
+                                .toLowerCase()
+                                .includes(query)
+                        ) {
 
-            });
+                            results.push({
+                                conversation,
+                                message
+                            });
+                        }
 
-        });
+                    }
+                );
+
+            }
+        );
 
 
         if (results.length === 0) {
@@ -1978,7 +2419,9 @@
                 <div class="no-results">
                     Tidak ditemukan pesan yang
                     mengandung
-                    <strong>${escapeHTML(keyword)}</strong>.
+                    <strong>${escapeHTML(
+                        keyword
+                    )}</strong>.
                 </div>
             `;
 
@@ -1986,82 +2429,117 @@
         }
 
 
-        results.forEach(result => {
+        results.forEach(
+            result => {
 
-            const button =
-                document.createElement("button");
+                const button =
+                    document.createElement(
+                        "button"
+                    );
 
-            button.className =
-                "search-result";
-
-            button.dataset.searchConversationId =
-                result.conversation.id;
-
-            button.dataset.searchMessageId =
-                result.message.id;
+                button.className =
+                    "search-result";
 
 
-            const top =
-                document.createElement("div");
+                button.dataset.searchConversationId =
+                    result.conversation.id;
 
-            top.className =
-                "search-result-top";
-
-
-            const conversationTitle =
-                document.createElement("div");
-
-            conversationTitle.className =
-                "search-result-conversation";
-
-            conversationTitle.textContent =
-                result.conversation.title ||
-                "Percakapan baru";
+                button.dataset.searchMessageId =
+                    result.message.id;
 
 
-            const role =
-                document.createElement("span");
+                const top =
+                    document.createElement(
+                        "div"
+                    );
 
-            role.className =
-                "search-result-role";
-
-            role.textContent =
-                result.message.role === "user"
-                    ? "Kamu"
-                    : "AI";
+                top.className =
+                    "search-result-top";
 
 
-            top.appendChild(conversationTitle);
-            top.appendChild(role);
+                const conversationTitle =
+                    document.createElement(
+                        "div"
+                    );
+
+                conversationTitle.className =
+                    "search-result-conversation";
+
+                conversationTitle.textContent =
+                    result.conversation.title ||
+                    "Percakapan baru";
 
 
-            const snippet =
-                document.createElement("div");
+                const role =
+                    document.createElement(
+                        "span"
+                    );
 
-            snippet.className =
-                "search-snippet";
+                role.className =
+                    "search-result-role";
 
-            snippet.innerHTML =
-                createSearchSnippet(
-                    result.message.content,
-                    keyword
+                role.textContent =
+                    result.message.role ===
+                    "user"
+                        ? "Kamu"
+                        : "AI";
+
+
+                top.appendChild(
+                    conversationTitle
+                );
+
+                top.appendChild(
+                    role
                 );
 
 
-            button.appendChild(top);
-            button.appendChild(snippet);
+                const snippet =
+                    document.createElement(
+                        "div"
+                    );
 
-            conversationList.appendChild(button);
-        });
+                snippet.className =
+                    "search-snippet";
+
+                snippet.innerHTML =
+                    createSearchSnippet(
+                        result.message.content,
+                        keyword
+                    );
+
+
+                button.appendChild(
+                    top
+                );
+
+                button.appendChild(
+                    snippet
+                );
+
+
+                conversationList.appendChild(
+                    button
+                );
+            }
+        );
     }
 
 
-    function createSearchSnippet(text, query) {
+    /* =====================================================
+       SEARCH SNIPPET
+    ===================================================== */
+
+    function createSearchSnippet(
+        text,
+        query
+    ) {
 
         const clean =
             String(text || "")
                 .replace(/\s+/g, " ")
                 .trim();
+
 
         const lower =
             clean.toLowerCase();
@@ -2069,8 +2547,11 @@
         const search =
             query.toLowerCase();
 
+
         const index =
-            lower.indexOf(search);
+            lower.indexOf(
+                search
+            );
 
 
         if (index === -1) {
@@ -2084,11 +2565,13 @@
         const contextBefore = 55;
         const contextAfter = 85;
 
+
         let start =
             Math.max(
                 0,
                 index - contextBefore
             );
+
 
         let end =
             Math.min(
@@ -2100,12 +2583,17 @@
 
 
         let snippet =
-            clean.slice(start, end);
+            clean.slice(
+                start,
+                end
+            );
 
 
         if (start > 0) {
-            snippet = "..." + snippet;
+            snippet =
+                "..." + snippet;
         }
+
 
         if (end < clean.length) {
             snippet += "...";
@@ -2119,7 +2607,10 @@
 
 
         if (localIndex === -1) {
-            return escapeHTML(snippet);
+
+            return escapeHTML(
+                snippet
+            );
         }
 
 
@@ -2129,15 +2620,19 @@
                 localIndex
             );
 
+
         const match =
             snippet.slice(
                 localIndex,
-                localIndex + query.length
+                localIndex +
+                query.length
             );
+
 
         const after =
             snippet.slice(
-                localIndex + query.length
+                localIndex +
+                query.length
             );
 
 
@@ -2151,9 +2646,9 @@
     }
 
 
-    /* =========================================================
+    /* =====================================================
        OPEN SEARCH RESULT
-    ========================================================= */
+    ===================================================== */
 
     function openSearchResult(
         conversationId,
@@ -2163,15 +2658,19 @@
         const conversation =
             conversations.find(
                 item =>
-                    item.id === conversationId
+                    item.id ===
+                    conversationId
             );
+
 
         if (!conversation) {
             return;
         }
 
+
         currentConversationId =
             conversationId;
+
 
         saveConversations();
 
@@ -2180,58 +2679,70 @@
         closeSidebar();
 
 
-        requestAnimationFrame(() => {
+        requestAnimationFrame(
+            () => {
 
-            const elements =
-                document.querySelectorAll(
-                    ".message-row[data-message-id]"
+                const elements =
+                    document.querySelectorAll(
+                        ".message-row[data-message-id]"
+                    );
+
+
+                let target = null;
+
+
+                elements.forEach(
+                    element => {
+
+                        if (
+                            element.dataset
+                                .messageId ===
+                            messageId
+                        ) {
+
+                            target =
+                                element;
+                        }
+
+                    }
                 );
 
-            let target = null;
 
-            elements.forEach(element => {
-
-                if (
-                    element.dataset.messageId ===
-                    messageId
-                ) {
-                    target = element;
+                if (!target) {
+                    return;
                 }
 
-            });
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
 
 
-            if (!target) {
-                return;
-            }
-
-
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
-
-            target.classList.add(
-                "search-highlight"
-            );
-
-
-            setTimeout(() => {
-
-                target.classList.remove(
+                target.classList.add(
                     "search-highlight"
                 );
 
-            }, 1900);
 
-        });
+                setTimeout(
+                    () => {
+
+                        target.classList.remove(
+                            "search-highlight"
+                        );
+
+                    },
+                    1900
+                );
+
+            }
+        );
     }
 
 
-    /* =========================================================
+    /* =====================================================
        RENDER CONVERSATION
-    ========================================================= */
+    ===================================================== */
 
     function renderConversation() {
 
@@ -2243,6 +2754,7 @@
 
             topbarTitle.textContent =
                 "Percakapan baru";
+
 
             chatMessages.innerHTML = `
                 <div class="welcome">
@@ -2267,7 +2779,9 @@
 
                         </div>
 
-                        <h1>Mulai percakapan</h1>
+                        <h1>
+                            Mulai percakapan
+                        </h1>
 
                         <p>
                             Tanyakan sesuatu kepada AI
@@ -2289,7 +2803,8 @@
 
 
         if (
-            conversation.messages.length === 0
+            conversation.messages.length ===
+            0
         ) {
 
             chatMessages.innerHTML = `
@@ -2315,7 +2830,9 @@
 
                         </div>
 
-                        <h1>Mulai percakapan</h1>
+                        <h1>
+                            Mulai percakapan
+                        </h1>
 
                         <p>
                             Tanyakan sesuatu kepada AI
@@ -2351,9 +2868,9 @@
     }
 
 
-    /* =========================================================
-       ADD MESSAGE DOM
-    ========================================================= */
+    /* =====================================================
+       ADD MESSAGE TO DOM
+    ===================================================== */
 
     function addMessageToDOM(
         role,
@@ -2362,10 +2879,14 @@
     ) {
 
         const row =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         row.className =
-            "message-row " + role;
+            "message-row " +
+            role;
+
 
         if (messageId) {
 
@@ -2375,7 +2896,9 @@
 
 
         const messageContent =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         messageContent.className =
             "message-content";
@@ -2385,51 +2908,110 @@
             formatMessage(content);
 
 
-        row.appendChild(messageContent);
+        row.appendChild(
+            messageContent
+        );
 
-        chatMessages.appendChild(row);
+
+        chatMessages.appendChild(
+            row
+        );
     }
 
 
-    /* =========================================================
-       FORMAT MESSAGE
-    ========================================================= */
+    /* =====================================================
+       ESCAPE HTML
+    ===================================================== */
 
     function escapeHTML(value) {
 
         return String(value)
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+            .replace(
+                /</g,
+                "&lt;"
+            )
+            .replace(
+                />/g,
+                "&gt;"
+            )
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+            .replace(
+                /'/g,
+                "&#039;"
+            );
     }
 
 
+    /* =====================================================
+       FORMAT MESSAGE
+       
+       PENTING:
+       Code block dipisahkan TERLEBIH DAHULU.
+       Clipboard menyimpan kode ASLI.
+       Tampilan memakai kode yang sudah di-escape.
+    ===================================================== */
+
     function formatMessage(text) {
-
-        let value =
-            escapeHTML(text);
-
 
         const codeBlocks = [];
 
 
-        value = value.replace(
-            /```(\w*)\n?([\s\S]*?)```/g,
-            function(_, language, code) {
+        /*
+         * Ambil code block sebelum escaping.
+         */
 
-                const index =
-                    codeBlocks.length;
+        let value =
+            String(text || "")
+                .replace(
+                    /```(\w*)\n?([\s\S]*?)```/g,
+                    function (
+                        _,
+                        language,
+                        code
+                    ) {
 
-                codeBlocks.push(code);
+                        const index =
+                            codeBlocks.length;
 
-                return (
-                    `___CODE_BLOCK_${index}___`
+
+                        codeBlocks.push({
+                            language:
+                                language ||
+                                "Code",
+
+                            code:
+                                code
+                        });
+
+
+                        return (
+                            `___CODE_BLOCK_${index}___`
+                        );
+                    }
                 );
-            }
-        );
 
+
+        /*
+         * Escape teks biasa.
+         *
+         * Placeholder code block
+         * tidak akan rusak.
+         */
+
+        value =
+            escapeHTML(value);
+
+
+        /*
+         * Inline code
+         */
 
         value =
             value.replace(
@@ -2438,12 +3020,20 @@
             );
 
 
+        /*
+         * Bold
+         */
+
         value =
             value.replace(
                 /\*\*(.*?)\*\*/g,
                 "<strong>$1</strong>"
             );
 
+
+        /*
+         * Italic
+         */
 
         value =
             value.replace(
@@ -2452,6 +3042,10 @@
             );
 
 
+        /*
+         * New line
+         */
+
         value =
             value.replace(
                 /\n/g,
@@ -2459,37 +3053,69 @@
             );
 
 
+        /*
+         * Masukkan kembali code block.
+         */
+
         codeBlocks.forEach(
-            (code, index) => {
+            function (
+                block,
+                index
+            ) {
 
-                const codeHTML =
-                    escapeHTML(code);
+                /*
+                 * Untuk tampilan:
+                 * HTML di-escape agar tidak
+                 * dieksekusi browser.
+                 */
 
-                const block = `
+                const codeForDisplay =
+                    escapeHTML(
+                        block.code
+                    );
+
+
+                /*
+                 * Untuk clipboard:
+                 * gunakan kode ASLI.
+                 */
+
+                const encodedCode =
+                    encodeURIComponent(
+                        block.code
+                    );
+
+
+                const blockHTML = `
                     <div class="code-wrapper">
 
                         <div class="code-header">
 
-                            <span>Code</span>
+                            <span>
+                                ${escapeHTML(
+                                    block.language
+                                )}
+                            </span>
 
                             <button
                                 class="copy-code"
-                                data-code="${encodeURIComponent(code)}"
+                                data-code="${encodedCode}"
                             >
                                 Copy
                             </button>
 
                         </div>
 
-                        <pre><code>${codeHTML}</code></pre>
+                        <pre><code>${codeForDisplay}</code></pre>
 
                     </div>
                 `;
 
+
                 value =
                     value.replace(
                         `___CODE_BLOCK_${index}___`,
-                        block
+                        blockHTML
                     );
             }
         );
@@ -2499,9 +3125,9 @@
     }
 
 
-    /* =========================================================
+    /* =====================================================
        SEND MESSAGE
-    ========================================================= */
+    ===================================================== */
 
     async function sendMessage() {
 
@@ -2542,7 +3168,9 @@
         sendButton.disabled = true;
 
 
-        /* USER MESSAGE */
+        /*
+         * USER MESSAGE
+         */
 
         const userMessage = {
 
@@ -2552,8 +3180,8 @@
 
             content: prompt,
 
-            createdAt: Date.now()
-
+            createdAt:
+                Date.now()
         };
 
 
@@ -2562,15 +3190,21 @@
         );
 
 
-        /* TITLE */
+        /*
+         * TITLE
+         */
 
         if (
-            conversation.messages.length === 1
+            conversation.messages.length ===
+            1
         ) {
 
             conversation.title =
                 prompt.length > 45
-                    ? prompt.slice(0, 45) + "..."
+                    ? prompt.slice(
+                        0,
+                        45
+                    ) + "..."
                     : prompt;
         }
 
@@ -2585,14 +3219,18 @@
         renderSidebar();
 
 
-        /* WELCOME HILANG */
+        /*
+         * Hapus welcome
+         */
 
         if (
             chatMessages.querySelector(
                 ".welcome"
             )
         ) {
-            chatMessages.innerHTML = "";
+
+            chatMessages.innerHTML =
+                "";
         }
 
 
@@ -2606,10 +3244,14 @@
         scrollChatToBottom(true);
 
 
-        /* TYPING */
+        /*
+         * TYPING INDICATOR
+         */
 
         const typingRow =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         typingRow.className =
             "message-row assistant";
@@ -2617,42 +3259,55 @@
         typingRow.id =
             "typingIndicator";
 
+
         typingRow.innerHTML = `
             <div class="message-content">
 
                 <div class="typing">
+
                     <span></span>
                     <span></span>
                     <span></span>
+
                 </div>
 
             </div>
         `;
 
+
         chatMessages.appendChild(
             typingRow
         );
+
 
         scrollChatToBottom(true);
 
 
         try {
 
+            /*
+             * API BACKEND
+             */
+
             const response =
-                await fetch("/api/chat", {
+                await fetch(
+                    "/api/chat",
+                    {
 
-                    method: "POST",
+                        method: "POST",
 
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
 
-                    body: JSON.stringify({
-                        message: prompt
-                    })
-
-                });
+                        body:
+                            JSON.stringify({
+                                message:
+                                    prompt
+                            })
+                    }
+                );
 
 
             const data =
@@ -2663,6 +3318,7 @@
                 document.getElementById(
                     "typingIndicator"
                 );
+
 
             if (indicator) {
                 indicator.remove();
@@ -2682,19 +3338,25 @@
             }
 
 
+            /*
+             * ASSISTANT MESSAGE
+             */
+
             const assistantMessage = {
 
                 id: createId(),
 
-                role: "assistant",
+                role:
+                    "assistant",
 
                 content:
                     String(
-                        data.answer || ""
+                        data.answer ||
+                        ""
                     ),
 
-                createdAt: Date.now()
-
+                createdAt:
+                    Date.now()
             };
 
 
@@ -2723,6 +3385,7 @@
                     "typingIndicator"
                 );
 
+
             if (indicator) {
                 indicator.remove();
             }
@@ -2732,14 +3395,15 @@
 
                 id: createId(),
 
-                role: "assistant",
+                role:
+                    "assistant",
 
                 content:
                     "Terjadi kesalahan: " +
                     error.message,
 
-                createdAt: Date.now()
-
+                createdAt:
+                    Date.now()
             };
 
 
@@ -2761,46 +3425,52 @@
             scrollChatToBottom(true);
 
 
-            console.error(error);
+            console.error(
+                error
+            );
 
         } finally {
 
             isSending = false;
 
-            sendButton.disabled = false;
+            sendButton.disabled =
+                false;
 
             messageInput.focus();
         }
     }
 
 
-    /* =========================================================
+    /* =====================================================
        SCROLL
-    ========================================================= */
+    ===================================================== */
 
-    function scrollChatToBottom(smooth = true) {
+    function scrollChatToBottom(
+        smooth = true
+    ) {
 
         chatMessages.scrollTo({
 
-            top: chatMessages.scrollHeight,
+            top:
+                chatMessages.scrollHeight,
 
             behavior:
                 smooth
                     ? "smooth"
                     : "auto"
-
         });
     }
 
 
-    /* =========================================================
-       TEXTAREA
-    ========================================================= */
+    /* =====================================================
+       TEXTAREA RESIZE
+    ===================================================== */
 
     function autoResizeTextarea() {
 
         messageInput.style.height =
             "auto";
+
 
         messageInput.style.height =
             Math.min(
@@ -2810,9 +3480,9 @@
     }
 
 
-    /* =========================================================
+    /* =====================================================
        EVENTS
-    ========================================================= */
+    ===================================================== */
 
     newChatButton.addEventListener(
         "click",
@@ -2838,56 +3508,74 @@
     );
 
 
+    /*
+     * Sidebar click delegation
+     */
+
     conversationList.addEventListener(
         "click",
         function(event) {
 
-            /* DELETE */
+            /*
+             * DELETE
+             */
 
             const deleteButton =
                 event.target.closest(
                     "[data-delete-id]"
                 );
 
+
             if (deleteButton) {
 
                 event.stopPropagation();
 
+
                 requestDeleteConversation(
-                    deleteButton.dataset.deleteId
+                    deleteButton.dataset
+                        .deleteId
                 );
+
 
                 return;
             }
 
 
-            /* SEARCH RESULT */
+            /*
+             * SEARCH RESULT
+             */
 
             const searchResult =
                 event.target.closest(
                     "[data-search-conversation-id]"
                 );
 
+
             if (searchResult) {
 
                 openSearchResult(
+
                     searchResult.dataset
                         .searchConversationId,
 
                     searchResult.dataset
                         .searchMessageId
+
                 );
 
                 return;
             }
 
 
-            /* NORMAL CONVERSATION */
+            /*
+             * NORMAL CONVERSATION
+             */
 
             const conversationButton =
                 event.target.closest(
                     "[data-conversation-id]"
                 );
+
 
             if (conversationButton) {
 
@@ -2901,6 +3589,10 @@
     );
 
 
+    /* =====================================================
+       CONFIRM DELETE
+    ===================================================== */
+
     confirmDelete.addEventListener(
         "click",
         function() {
@@ -2911,6 +3603,7 @@
                     pendingDeleteId
                 );
             }
+
 
             closeDeleteModal();
         }
@@ -2923,6 +3616,10 @@
     );
 
 
+    /*
+     * Klik luar modal
+     */
+
     deleteModal.addEventListener(
         "click",
         function(event) {
@@ -2931,12 +3628,17 @@
                 event.target ===
                 deleteModal
             ) {
+
                 closeDeleteModal();
             }
 
         }
     );
 
+
+    /* =====================================================
+       SEND
+    ===================================================== */
 
     sendButton.addEventListener(
         "click",
@@ -2949,6 +3651,11 @@
         autoResizeTextarea
     );
 
+
+    /*
+     * Enter = send
+     * Shift + Enter = newline
+     */
 
     messageInput.addEventListener(
         "keydown",
@@ -2968,7 +3675,12 @@
     );
 
 
-    /* COPY CODE */
+    /* =====================================================
+       COPY CODE
+       
+       Bagian ini mengambil data-code yang
+       masih berupa kode ASLI.
+    ===================================================== */
 
     document.addEventListener(
         "click",
@@ -2979,42 +3691,142 @@
                     ".copy-code"
                 );
 
+
             if (!button) {
                 return;
             }
 
 
-            const code =
-                decodeURIComponent(
-                    button.dataset.code
-                );
+            const encodedCode =
+                button.dataset.code;
+
+
+            let code;
 
 
             try {
 
-                await navigator.clipboard.writeText(
-                    code
-                );
+                /*
+                 * Decode kembali kode asli.
+                 */
 
-                const oldText =
-                    button.textContent;
-
-                button.textContent =
-                    "Copied";
-
-                setTimeout(() => {
-
-                    button.textContent =
-                        oldText;
-
-                }, 1200);
+                code =
+                    decodeURIComponent(
+                        encodedCode
+                    );
 
             } catch (error) {
 
                 console.error(
-                    "Clipboard error:",
+                    "Gagal decode code:",
                     error
                 );
+
+                return;
+            }
+
+
+            try {
+
+                /*
+                 * Clipboard API
+                 */
+
+                await navigator.clipboard
+                    .writeText(
+                        code
+                    );
+
+
+                const oldText =
+                    button.textContent;
+
+
+                button.textContent =
+                    "Copied";
+
+
+                setTimeout(
+                    () => {
+
+                        button.textContent =
+                            oldText;
+
+                    },
+                    1200
+                );
+
+
+            } catch (error) {
+
+                /*
+                 * Fallback untuk WebView/browser
+                 * yang tidak mendukung Clipboard API.
+                 */
+
+                try {
+
+                    const textarea =
+                        document.createElement(
+                            "textarea"
+                        );
+
+
+                    textarea.value =
+                        code;
+
+
+                    textarea.style.position =
+                        "fixed";
+
+                    textarea.style.opacity =
+                        "0";
+
+
+                    document.body.appendChild(
+                        textarea
+                    );
+
+
+                    textarea.focus();
+
+                    textarea.select();
+
+
+                    document.execCommand(
+                        "copy"
+                    );
+
+
+                    textarea.remove();
+
+
+                    const oldText =
+                        button.textContent;
+
+
+                    button.textContent =
+                        "Copied";
+
+
+                    setTimeout(
+                        () => {
+
+                            button.textContent =
+                                oldText;
+
+                        },
+                        1200
+                    );
+
+
+                } catch (fallbackError) {
+
+                    console.error(
+                        "Clipboard error:",
+                        fallbackError
+                    );
+                }
 
             }
 
@@ -3022,13 +3834,17 @@
     );
 
 
-    /* ESC */
+    /* =====================================================
+       ESC KEY
+    ===================================================== */
 
     document.addEventListener(
         "keydown",
         function(event) {
 
-            if (event.key === "Escape") {
+            if (
+                event.key === "Escape"
+            ) {
 
                 if (
                     deleteModal.classList.contains(
@@ -3042,15 +3858,16 @@
 
                     closeSidebar();
                 }
+
             }
 
         }
     );
 
 
-    /* =========================================================
+    /* =====================================================
        INITIALIZE
-    ========================================================= */
+    ===================================================== */
 
     if (
         !currentConversationId ||

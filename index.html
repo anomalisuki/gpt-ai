@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#212121">
+<title>AI Chat</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#212121;color:#ececec}
+button,textarea,input{font:inherit} button{-webkit-tap-highlight-color:transparent}
+.app{width:100%;height:100%;display:flex;position:relative;overflow:hidden;background:#212121}
+.sidebar{width:280px;height:100%;flex-shrink:0;background:#171717;border-right:1px solid #2f2f2f;display:flex;flex-direction:column;z-index:20;transition:transform .2s ease}
+.sidebar-header{height:62px;padding:12px;display:flex;align-items:center;gap:8px}
+.new-chat-btn{flex:1;height:42px;border:1px solid #3a3a3a;border-radius:10px;background:#212121;color:#fff;cursor:pointer;display:flex;align-items:center;gap:9px;padding:0 13px;transition:.15s}
+.new-chat-btn:hover{background:#2a2a2a}.new-chat-icon{font-size:21px;line-height:1}
+.close-sidebar{width:42px;height:42px;border:0;border-radius:10px;background:transparent;color:#aaa;cursor:pointer;font-size:20px}
+.close-sidebar:hover{background:#2a2a2a;color:#fff}
+.search-box{padding:0 12px 12px}.search-wrapper{position:relative}.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#777;pointer-events:none}
+#searchInput{width:100%;height:40px;border:1px solid #333;border-radius:9px;outline:none;background:#212121;color:#eee;padding:0 12px 0 37px}
+#searchInput:focus{border-color:#555}.conversation-title{padding:5px 15px 8px;color:#777;font-size:11px;text-transform:uppercase;letter-spacing:.7px}
+.conversation-list{flex:1;overflow-y:auto;padding:0 8px 12px}.conversation-item{width:100%;min-height:44px;border:0;border-radius:8px;background:transparent;color:#ccc;text-align:left;padding:9px 11px;margin-bottom:2px;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.conversation-item:hover{background:#242424}.conversation-item.active{background:#2a2a2a;color:#fff}.empty-conversations{color:#666;font-size:13px;padding:15px 10px;text-align:center}
+.main{min-width:0;flex:1;height:100%;display:flex;flex-direction:column;position:relative}
+.topbar{height:62px;flex-shrink:0;display:flex;align-items:center;padding:0 14px;border-bottom:1px solid #2b2b2b;background:rgba(33,33,33,.96);position:relative;z-index:5}
+.menu-btn{width:42px;height:42px;border:0;border-radius:9px;background:transparent;color:#ddd;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center}
+.menu-btn:hover{background:#2b2b2b}.top-title{margin-left:8px;font-size:15px;font-weight:600;color:#eee}
+.chat{flex:1;overflow-y:auto;scroll-behavior:smooth}.messages{width:min(900px,100%);margin:0 auto;padding:25px 20px 150px}
+.message-row{width:100%;display:flex;margin:18px 0}.message-row.user{justify-content:flex-end}.message-row.assistant{justify-content:flex-start}
+.message{max-width:min(760px,88%);line-height:1.65;font-size:15px;word-wrap:break-word}.user .message{background:#303030;border-radius:18px;padding:10px 15px;color:#f1f1f1}.assistant .message{padding:3px 0;color:#e5e5e5}
+.message p{margin:0 0 12px}.message p:last-child{margin-bottom:0}.message code:not(.code-content){background:#2d2d2d;border:1px solid #3b3b3b;border-radius:5px;padding:2px 5px;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:13px}
+.code-block{position:relative;margin:14px 0;border:1px solid #333;border-radius:10px;overflow:hidden;background:#111;max-width:100%}
+.code-header{min-height:38px;display:flex;align-items:center;justify-content:flex-end;padding:0 8px;border-bottom:1px solid #292929;background:#181818}
+.code-language{margin-right:auto;color:#777;font-size:11px}.copy-code{display:flex;align-items:center;gap:5px;border:0;border-radius:6px;padding:6px 9px;background:transparent;color:#aaa;font-size:12px;cursor:pointer;transition:.15s}
+.copy-code:hover{background:#2a2a2a;color:#fff}.copy-code.copied{color:#fff}
+.code-content{display:block;margin:0;padding:14px;overflow-x:auto;color:#ddd;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:13px;line-height:1.6;white-space:pre;tab-size:2}
+.welcome{min-height:calc(100vh - 62px);display:flex;align-items:center;justify-content:center;padding:30px 20px 150px;text-align:center}.welcome-inner{max-width:620px}
+.welcome-logo{width:52px;height:52px;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;background:#2f2f2f;color:#fff;font-size:25px}
+.welcome h1{margin:0 0 10px;font-size:27px;font-weight:600}.welcome p{margin:0;color:#999;font-size:14px}
+.composer-area{position:absolute;left:0;right:0;bottom:0;padding:15px 18px 20px;background:linear-gradient(to top,#212121 65%,transparent);pointer-events:none}
+.composer{pointer-events:auto;width:min(850px,100%);margin:0 auto;min-height:54px;border:1px solid #444;border-radius:17px;background:#2f2f2f;display:flex;align-items:flex-end;padding:8px 8px 8px 15px;box-shadow:0 5px 30px rgba(0,0,0,.2)}
+#messageInput{flex:1;min-width:0;max-height:180px;min-height:36px;resize:none;border:0;outline:0;background:transparent;color:#eee;padding:8px 5px;line-height:1.45;overflow-y:auto}
+#messageInput::placeholder{color:#777}#sendButton{width:38px;height:38px;flex-shrink:0;border:0;border-radius:10px;background:#fff;color:#111;cursor:pointer;font-size:18px;margin-left:7px;transition:.15s}
+#sendButton:hover{background:#ddd}#sendButton:disabled{opacity:.4;cursor:default}.disclaimer{text-align:center;font-size:10px;color:#666;margin-top:7px}
+.typing{display:flex;gap:4px;padding:8px 0}.typing span{width:6px;height:6px;border-radius:50%;background:#888;animation:typing 1.2s infinite}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+@keyframes typing{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+@media(max-width:700px){.sidebar{position:absolute;left:0;top:0;bottom:0;width:min(310px,88vw);transform:translateX(-100%);box-shadow:8px 0 30px rgba(0,0,0,.3)}.sidebar.open{transform:translateX(0)}.messages{padding-left:14px;padding-right:14px}.message{max-width:92%}.top-title{font-size:14px}.composer-area{padding-left:10px;padding-right:10px}.welcome h1{font-size:23px}}
+@media(min-width:701px){.sidebar{transform:translateX(0)}.sidebar:not(.force-open){display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside id="sidebar" class="sidebar">
+<div class="sidebar-header">
+<button id="newChatButton" class="new-chat-btn" type="button"><span class="new-chat-icon">＋</span><span>Percakapan baru</span></button>
+<button id="closeSidebar" class="close-sidebar" type="button" aria-label="Tutup">×</button>
+</div>
+<div class="search-box"><div class="search-wrapper"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Cari percakapan..." autocomplete="off"></div></div>
+<div class="conversation-title">Percakapan</div>
+<div id="conversationList" class="conversation-list"></div>
+</aside>
+<main class="main">
+<header class="topbar"><button id="menuButton" class="menu-btn" type="button" aria-label="Menu">☰</button><div id="topTitle" class="top-title">AI Chat</div></header>
+<section id="chat" class="chat">
+<div id="welcome" class="welcome"><div class="welcome-inner"><div class="welcome-logo">✦</div><h1>Ada yang bisa saya bantu?</h1><p>Mulai percakapan baru dengan AI.</p></div></div>
+<div id="messages" class="messages" style="display:none"></div>
+</section>
+<div class="composer-area">
+<form id="composer" class="composer"><textarea id="messageInput" rows="1" placeholder="Tanya apa saja..." autocomplete="off"></textarea><button id="sendButton" type="submit" aria-label="Kirim">↑</button></form>
+<div class="disclaimer">AI dapat membuat kesalahan. Periksa informasi penting.</div>
+</div>
+</main>
+</div>
+<script>
+const STORAGE_KEY='ai_chat_conversations_v3';
+let conversations=loadConversations();
+let currentConversationId=localStorage.getItem('ai_current_conversation');
+let isSending=false;
+function loadConversations(){try{const saved=localStorage.getItem(STORAGE_KEY);if(!saved)return[];const parsed=JSON.parse(saved);return Array.isArray(parsed)?parsed:[]}catch{return[]}}
+function saveConversations(){localStorage.setItem(STORAGE_KEY,JSON.stringify(conversations));if(currentConversationId)localStorage.setItem('ai_current_conversation',currentConversationId)}
+const sidebar=document.getElementById('sidebar'),menuButton=document.getElementById('menuButton'),closeSidebar=document.getElementById('closeSidebar'),newChatButton=document.getElementById('newChatButton'),conversationList=document.getElementById('conversationList'),searchInput=document.getElementById('searchInput'),messages=document.getElementById('messages'),welcome=document.getElementById('welcome'),messageInput=document.getElementById('messageInput'),composer=document.getElementById('composer'),sendButton=document.getElementById('sendButton'),topTitle=document.getElementById('topTitle'),chat=document.getElementById('chat');
+menuButton.addEventListener('click',()=>{sidebar.classList.add('open');sidebar.classList.add('force-open');renderConversationList()});
+closeSidebar.addEventListener('click',()=>sidebar.classList.remove('open'));
+newChatButton.addEventListener('click',()=>{createNewConversation();if(window.innerWidth<=700)sidebar.classList.remove('open');messageInput.focus()});
+function createNewConversation(){const id=crypto.randomUUID?crypto.randomUUID():Date.now()+'_'+Math.random().toString(36).slice(2);const conversation={id,title:'Percakapan baru',messages:[],createdAt:Date.now()};conversations.unshift(conversation);currentConversationId=id;saveConversations();renderConversationList();renderConversation()}
+function getCurrentConversation(){return conversations.find(item=>item.id===currentConversationId)}
+function renderConversationList(filter=''){conversationList.innerHTML='';const keyword=filter.trim().toLowerCase();const filtered=conversations.filter(chat=>!keyword||chat.title.toLowerCase().includes(keyword)||chat.messages.some(message=>String(message.content).toLowerCase().includes(keyword)));if(!filtered.length){conversationList.innerHTML='<div class="empty-conversations">Tidak ada percakapan.</div>';return}filtered.forEach(conversation=>{const button=document.createElement('button');button.type='button';button.className='conversation-item'+(conversation.id===currentConversationId?' active':'');button.textContent=conversation.title||'Percakapan baru';button.addEventListener('click',()=>{currentConversationId=conversation.id;saveConversations();renderConversationList();renderConversation();if(window.innerWidth<=700)sidebar.classList.remove('open')});conversationList.appendChild(button)})}
+searchInput.addEventListener('input',()=>renderConversationList(searchInput.value));
+function renderConversation(){const conversation=getCurrentConversation();if(!conversation||!conversation.messages.length){welcome.style.display='flex';messages.style.display='none';messages.innerHTML='';topTitle.textContent='AI Chat';return}welcome.style.display='none';messages.style.display='block';messages.innerHTML='';topTitle.textContent=conversation.title||'AI Chat';conversation.messages.forEach(message=>addMessageToDOM(message.role,message.content));scrollToBottom()}
+function addMessageToDOM(role,text){const row=document.createElement('div');row.className='message-row '+(role==='user'?'user':'assistant');const message=document.createElement('div');message.className='message';if(role==='user')message.textContent=text;else message.innerHTML=formatMessage(text);row.appendChild(message);messages.appendChild(row);return row}
+function escapeHTML(text){return String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;')}
+function formatMessage(text){let html=escapeHTML(text),codeBlocks=[];html=html.replace(/```(?:([\w+#.-]+))?\n?([\s\S]*?)```/g,(match,language,code)=>{const codeId='code_'+Math.random().toString(36).substring(2,10),placeholder=`___CODE_BLOCK_${codeBlocks.length}___`;codeBlocks.push({placeholder,html:`<div class="code-block"><div class="code-header"><span class="code-language">${language||'code'}</span><button class="copy-code" type="button" data-code-id="${codeId}">📋 Copy</button></div><pre id="${codeId}" class="code-content">${code}</pre></div>`});return placeholder});html=html.replace(/`([^`]+)`/g,'<code>$1</code>');html=html.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');html=html.replace(/(^|[^\*])\*([^*\n]+)\*(?!\*)/g,'$1<em>$2</em>');html=html.replace(/\n/g,'<br>');codeBlocks.forEach(block=>html=html.replace(block.placeholder,block.html));return html}
+async function copyCode(id,button){const codeElement=document.getElementById(id);if(!codeElement)return;const code=codeElement.textContent;try{await navigator.clipboard.writeText(code);button.innerHTML='✓ Copied';button.classList.add('copied');setTimeout(()=>{button.innerHTML='📋 Copy';button.classList.remove('copied')},1500)}catch(error){const textarea=document.createElement('textarea');textarea.value=code;textarea.style.position='fixed';textarea.style.left='-9999px';document.body.appendChild(textarea);textarea.focus();textarea.select();try{document.execCommand('copy');button.innerHTML='✓ Copied';button.classList.add('copied');setTimeout(()=>{button.innerHTML='📋 Copy';button.classList.remove('copied')},1500)}catch{button.innerHTML='Copy gagal'}textarea.remove()}}
+document.addEventListener('click',event=>{const button=event.target.closest('.copy-code');if(!button)return;copyCode(button.dataset.codeId,button)});
+function scrollToBottom(){requestAnimationFrame(()=>{chat.scrollTop=chat.scrollHeight})}
+function addTypingIndicator(){const row=document.createElement('div');row.className='message-row assistant';row.id='typingIndicator';row.innerHTML='<div class="message"><div class="typing"><span></span><span></span><span></span></div></div>';messages.appendChild(row);scrollToBottom()}
+function removeTypingIndicator(){const element=document.getElementById('typingIndicator');if(element)element.remove()}
+composer.addEventListener('submit',async event=>{event.preventDefault();await sendMessage()});
+async function sendMessage(){if(isSending)return;const prompt=messageInput.value.trim();if(!prompt)return;if(!currentConversationId)createNewConversation();const conversation=getCurrentConversation();if(!conversation)return;if(conversation.messages.length===0)conversation.title=prompt.length>45?prompt.slice(0,45)+'...':prompt;conversation.messages.push({role:'user',content:prompt,createdAt:Date.now()});saveConversations();renderConversationList();renderConversation();messageInput.value='';autoResizeTextarea();isSending=true;sendButton.disabled=true;addTypingIndicator();try{const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:prompt})});const data=await response.json();removeTypingIndicator();if(!response.ok||!data.success)throw new Error(data.error||'Gagal mendapatkan jawaban');conversation.messages.push({role:'assistant',content:data.answer||'(Tidak ada jawaban)',createdAt:Date.now()});saveConversations();renderConversationList();renderConversation()}catch(error){removeTypingIndicator();conversation.messages.push({role:'assistant',content:'Terjadi kesalahan: '+error.message,createdAt:Date.now()});saveConversations();renderConversation()}finally{isSending=false;sendButton.disabled=false;messageInput.focus()}}
+function autoResizeTextarea(){messageInput.style.height='auto';messageInput.style.height=Math.min(messageInput.scrollHeight,180)+'px'}
+messageInput.addEventListener('input',autoResizeTextarea);
+messageInput.addEventListener('keydown',event=>{if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();composer.requestSubmit()}});
+searchInput.addEventListener('keydown',event=>{if(event.key!=='Enter')return;const keyword=searchInput.value.trim().toLowerCase();if(!keyword)return;for(const conversation of conversations){const found=conversation.messages.find(message=>String(message.content).toLowerCase().includes(keyword));if(found){currentConversationId=conversation.id;saveConversations();renderConversationList();renderConversation();setTimeout(()=>{for(const element of document.querySelectorAll('.message'))if(element.textContent.toLowerCase().includes(keyword)){element.scrollIntoView({behavior:'smooth',block:'center'});break}},100);break}}});
+if(!currentConversationId&&conversations.length)currentConversationId=conversations[0].id;
+if(currentConversationId&&!getCurrentConversation())currentConversationId=null;
+renderConversationList();renderConversation();messageInput.focus();
+</script>
+</body>
+</html>
